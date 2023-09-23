@@ -7,33 +7,38 @@
 \usepackage{multicol}
 \usepackage{xspace}
 \usepackage[margin=20pt]{geometry}
-\usepackage{everypage}
+\usepackage{lettrine}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{eso-pic}
+
 % TODO: 
 % Page border
-% Fancy initials
-% 'fi' ligature in scena secunda, Cap. speaking last line
-% Italic 'C' made taller/longer
 
 
-
-\setmainfont[Numbers=OldStyle,Ligatures=Discretionary,Style=Historic,StylisticSet=18]{Junicode}
+\setmainfont[Numbers=OldStyle,Style=Historic]{Junicode}
 \setlength\columnseprule{.3pt}
-\AddEverypageHook{}
 
-% Character Commands
-\newcommand{\s}{{\fontspec[Style=]{Junicode}s}}
 
 % Drama commands
 \newcommand{\dia}[1]{\hskip 10pt\textit{#1}\hskip 6pt}
 
+% Define the page border
+\AddToShipoutPicture{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[line width=1pt] ($(current page.north west)+(0.2in,-0.2in)$) rectangle ($(current page.south east)+(-0.2in,0.2in)$);
+    \end{tikzpicture}%
+}
+
 % Document
 \begin{document}
 	\title{THE TRAGEDIE OF MACBETH}
-	\author{William Shakespeare}
-	\date{Latter Month{\s} of 1623}
+    \author{{\fontspec{Junicode}[Contextuals=NoAlternate]William Shakespeare}}
+    \date{Latter Months of 1623}
 	\maketitle
-	%TODO the 's' here should be round form
 	
+	%TODO the 's' here should be round form
 	\castpagelatin
 	\cast{Macbeth}{}
 	\cast{Lady Macbeth}{}
@@ -55,15 +60,14 @@
 	
 	\newpage
 	
-	\newactnamed{Actu{\s} Primu{\s}.}
-
+	\newactnamed{{\fontspec{Junicode}[Contextuals=NoAlternate]Actus Primus.}}
 	\begin{multicols}{2}		
 		\newscenenamed{Sc{\oe}na Prima}
-			\stagedir{Thunder and lightning. Enter three Witche{\s}.}
+			\stagedir{Thunder and lightning. Enter three Witches.}
 			
-			\dia{\oldstylenums{1}.} When shall we three meet againe? \\ In Thunder,\allowbreak Lightning,\allowbreak or in Raine?
+			\dia{\oldstylenums{1}.} \lettrine{W}{hen} shall we three meet againe? \\ In Thunder, Lightning, or in Raine?
 			
-			\dia{\oldstylenums{2}.} When the Hurley-Burley'{\s} done, \\ When the Battaile'{\s} lost,and wonne.
+			\dia{\oldstylenums{2}.} When the Hurley-Burley's done, \\ When the Battaile's lost, and wonne.
 			
 			\dia{\oldstylenums{3}.} That will be ere the set of Sunne.
 			
@@ -73,61 +77,61 @@
 			
 			\dia{\oldstylenums{3}.} There to meet with \textit{Macbeth}.
 			
-			\dia{\oldstylenums{1}.} I come,\textit{Gray-Malkin}.
+			\dia{\oldstylenums{1}.} I come, \textit{Gray-Malkin}.
 			
-			\dia{All.} \textit{Padock} call{\s} anon: faire i{\s} foule,and foule i{\s} faire, \\ Houer through the fogge and filthie ayre.
+			\dia{All.} \textit{Padock} calls anon: faire is foule, and foule is faire, \\ Houer through the fogge and filthie ayre.
 			\stagedir{Exeunt}
 			
 		\newscenenamed{Scena Secunda}
-			\stagedir{Alarum within. Enter King Malcome,\allowbreak Donalbaine,\allowbreak Lenox,\allowbreak with attendant{\s},meeting a bleeding Captaine.}
-			\dia{King.} What bloody man i{\s} that? he can report, \\  A{\s} seemth by hi{\s} plight,\allowbreak of the Reuolt \\ The newest state.
+			\stagedir{Alarum within. Enter King, Malcome, Donalbaine, Lenox, with attendants, meeting a bleeding Captaine.}
+			\dia{King.} What bloody man is that? he can report, \\  As seemth by his plight, of the Reuolt \\ The newest state.
 			
-			\dia{Cap.} Doubtfull it stood,\\ a{\s} two spent Swimmer{\s},that doe cling together,\\ And choake their Art: The mercilesse \textit{Macdonwald} \\ (Worthie to be a Rebell,for to that \\ The multiplying Villanie{\s} of Nature \\ Doe swarme vpon him) from the Westerne Isle{\s} \\ Of Kerne{\s} and Gallowgrosse{\s} i{\s} supply'd, \\ And Fortune on hi{\s} damned Quarry smiling, \\ Shew'd like a Rebell{\s} Whore: but all'{\s} too weake: \\ For braue \textit{Macbeth}( well hee deserue{\s} that Name) \\ Disdayning Fortune,with hi{\s} brandisht Steele, \\ Which smoak'd with bloody execution \\ (Like Valour{\s} Minion) caru'd out hi{\s} passage, \\ Till hee fac'd the Slaue: \\ Which neu'r shooke hand{\s},\allowbreak nor bad farwell to him, \\ Till he vnseam'd him from the Naue toth Chop{\s}, \\ And {fi}x'd hi{\s} Head vpon our Battlement{\s}.
+			\dia{Cap.} Doubtfull it stood,\\ as two spent Swimmers, that doe cling together,\\ And choake their Art: The mercilesse \textit{Macdonwald} \\ (Worthie to be a Rebell, for to that \\ The multiplying Villanies of Nature \\ Doe swarme vpon him) from the Westerne Isles \\ Of Kernes and Gallowgrosses is supply'd, \\ And Fortune on his damned Quarry smiling, \\ Shew'd like a Rebells Whore: but all's too weake: \\ For braue \textit{Macbeth} (well hee deserues that Name) \\ Disdayning Fortune, with his brandisht Steele, \\ Which smoak'd with bloody execution \\ (Like Valours Minion) caru'd out his passage, \\ Till hee fac'd the Slaue: \\ Which neu'r shooke hands, nor bad farwell to him, \\ Till he vnseam'd him from the Naue toth' Chops, \\ And fix'd his Head vpon our Battlements.
 			
-			\dia{King.} O valiant Cousin,\allowbreak worthy Gentleman.
+			\dia{King.} O valiant Cousin, worthy Gentleman.
 			
-			\dia{Cap.} A{\s} whence the Sunne gin{\s} hi{\s} reflection, \\ Shipwracking Storme{\s},\allowbreak and direfull Thunder{\s}: \\ So from that Spring,\allowbreak whence comfort seem'd to come, \\ Discomfort swell{\s}: Marke King of Scotland,\allowbreak marke, \\ No sooner Iustice had,\allowbreak with Valour arm'd, \\ Compell'd these {\s}kipping Kerne{\s} to trust their heele{\s}, \\ but the Norweyan Lord,\allowbreak surueying vantage, \\ With furbusht Arme{\s},\allowbreak and new supplye{\s} of men, \\ Began a fresh assault.
+			\dia{Cap.} As whence the Sunne 'gins his reflection, \\ Shipwracking Stormes, and direfull Thunders: \\ So from that Spring, whence comfort seem'd to come, \\ Discomfort swells: Marke King of Scotland, marke, \\ No sooner Iustice had, with Valour arm'd, \\ Compell'd these skipping Kernes to trust their heeles, \\ but the Norweyan Lord, surueying vantage, \\ With furbusht Armes, and new supplyes of men, \\ Began a fresh assault.
 			
-			\dia{King.} Dismay'd not thi{\s} our Captaine{\s},\allowbreak \textit{Macbeth} and \textit{Banquoh}?
+			\dia{King.} Dismay'd not this our Captaines, \textit{Macbeth} and \textit{Banquoh}?
 			
-			\dia{Cap.} Ye{\s},\allowbreak a{\s} Sparrow{\s},\allowbreak Eagle{\s}; \\ Or the Hare, the Lyon: \\ If I say sooth, I must report they were \\ A{\s} Cannon{\s} ouer-charg'd with double Crack{\s}, \\ So they doubly redoubled stroake{\s} vpon the Foe: \\ Except they meant to bathe in reeking Wound{\s}, \\ Or memorize another Golgotha, \\ I cannot tell: but I am faint, \\ My gashe{\s} cry for helpe.
+			\dia{Cap.} Yes, as Sparrowes, Eagles; \\ Or the Hare, the Lyon: \\ If I say sooth, I must report they were \\ As Cannons ouer-charg'd with double Cracks, \\ So they doubly redoubled stroakes vpon the Foe: \\ Except they meant to bathe in reeking Wounds, \\ Or memorize another Golgotha, \\ I cannot tell: but I am faint, \\ My gashes cry for helpe.
 			
-			\dia{King.} So well thy word{\s} become thee,\allowbreak a{\s} thy wound{\s}, \\ They smack of Honor both: Goe get him Surgeon{\s}.
+			\dia{King.} So well thy words become thee, as thy wounds, \\ They smack of Honor both: Goe get him Surgeons.
 			
-			\stagedir{Enter Rosse and Angu{\s}.}
-			Who come{\s} here?
+			\stagedir{Enter Rosse and Angus.}
+			Who comes here?
 			
 			\dia{Mal.} The worthy \textit{Thane} of Rosse.
 			 
-			\dia{Lenox.} What a haste looke{\s} through his eye{\s}? \\ So should he looke, that seeme{\s} to speake thing{\s} strange.
+			\dia{Lenox.} What a haste lookes through his eyes? \\ So should he looke, that seemes to speake things strange.
 			
 			\dia{Rosse.} God saue the King.
 			
-			\dia{King.} Whence cam'st thou,\allowbreak worthy \textit{Thane} ?
+			\dia{King.} Whence cam'st thou,worthy \textit{Thane} ?
 			
-			\dia{Rosse.} From Fiffe,\allowbreak great King, \\ Where Norweyan Banner{\s} flowt the Skie, \\ And fanne our people cold. \\ \textit{Norway} himselfe,\allowbreak with terrible number{\s} \\ Assisted by that most disloyall Traytor, \\ The \textit{Thane} of Cawdor,\allowbreak began a dismall Conflict, \\ Till that \textit{Bellona'{\s}} Bridegroome,\allowbreak lapt in proofe, \\ Confronted him with selfe-comparison{\s}, \\ Point against Point,\allowbreak rebelliou{\s} Arme 'gainst Arme, \\ Curbing hi{\s} lauish spirit: and to conclude, \\ The Victorie fell on v{\s}.
+			\dia{Rosse.} From Fiffe, great King, \\ Where Norweyan Banners flowt the Skie, \\ And fanne our people cold. \\ \textit{Norway} himselfe,with terrible numbers \\ Assisted by that most disloyall Traytor, \\ The \textit{Thane} of Cawdor, began a dismall Conflict, \\ Till that \textit{Bellona's} Bridegroome, lapt in proofe, \\ Confronted him with selfe-comparisons, \\ Point against Point, rebellious Arme 'gainst Arme, \\ Curbing his lauish spirit: and to conclude, \\ The Victorie fell on vs.
 			
-			\dia{King.} Great Hapinesse.
+			\dia{King.} Great hapinesse.
 			
-			\dia{Rosse.} That now,\allowbreak \textit{Sweno},\allowbreak the Norwaye{\s} King, \\ Craue{\s} composition: \\ Nor would we deigne him buriall of hi{\s} men, \\ Till he di{\s}bursed,\allowbreak at Saint \textit{Colme{\s}} ynch, \\ Ten thousand Dollar{\s},\allowbreak to our generall vse.
+			\dia{Rosse.} That now, \textit{Sweno}, the Norwayes King, \\ Craues composition: \\ Nor would we deigne him buriall of his men, \\ Till he disbursed, at Saint \textit{Colmes} ynch, \\ Ten thousand Dollars, to our generall vse.
 			
-			\dia{King.} No more that \textit{Thane} of Cawdor shall decieue \\ Our bosome interest: Goe pronounce hi{\s} present death, \\ And with hi{\s} former Title greet \textit{Macbeth}.
+			\dia{King.} No more that \textit{Thane} of Cawdor shall decieue \\ Our Bosome interest: Goe pronounce his present death, \\ And with his former Title greet \textit{Macbeth}.
 			
 			\dia{Rosse.} Ile see it done.
 			
-			\dia{King.} What he hath lost,\allowbreak Noble \textit{Macbeth} hath wonne.
-			\stagedir{Exeunt.}
+			\dia{King.} What he hath lost, Noble \textit{Macbeth} hath wonne.
+			\hfill \stagedir{Exeunt.}
 			
 		\newscenenamed{Scena Tertia.}	
 			\stagedir{Thunder. Enter the three Witches.}
 			
-			\dia{1.} Where hast thou beene,\allowbreak Sister?
+			\dia{1.} Where hast thou beene, Sister?
 			
 			\dia{2.} Killing Swine.
 			
-			\dia{3.} Sister,where thou?
+			\dia{3.} Sister, where thou?
 			
-			\dia{1.} A Saylor{\s} Wife had Chestnut{\s} in her Lappe, \\ And mouncht,\allowbreak \& mouncht,\allowbreak and mouncht: \\ giue me, quoth I. \\ Aroynt thee,\allowbreak Witch,\allowbreak the rumpe-fed Ronyon Crye{\s}. \\ Her Husband'{\s} to Aleppo gone,\allowbreak Master o'th'\textit{Tiger:} \\ But in a Syue Ile thither sayle, \\ And like a Rat without a tayle, \\ Ile doe,\allowbreak Ile doe,\allowbreak and Ile doe.
+			\dia{1.} A Saylors Wife had Chestnuts in her Lappe, \\ And mouncht, \&mouncht, and mouncht: \\ Giue me, quoth I. \\ Aroynt thee, Witch, the rumpe-fed Ronyon cryes. \\ Her Husband's to Aleppo gone, Master o'th'\textit{Tiger:} \\ But in a Syue Ile thither sayle, \\ And like a Rat without a tayle, \\ Ile doe, Ile doe, and Ile doe.
 			
 			\dia{2.} Ile giue thee a Winde.
 			
@@ -135,6 +139,99 @@
 			
 			\dia{3.} And I another.
 			
-			\dia{1.} I my selfe haue all the other, \\ And the very Port{\s} they blow, \\ All the Quarter{\s} that they know, \\ I'th'Ship-man{\s} Card. \\  Ile dreyne him drie as Hay: \\ Sleepe shall neyther Night nor Day \\ Hang vpon his Pent-house Lid:			
+			\dia{1.} I my selfe haue all the other, \\ And the very Ports they blow, \\ All the Quarters that they know, \\ I'th'Ship-mans Card. \\  Ile dreyne him drie as Hay: \\ Sleepe shall neyther Night nor Day \\ Hang vpon his Pent-house Lid: \\ He shall liue a man forbid: \\ Wearie Seu'nights, nine times nine, \\ Shall he dwindle, peake, and pine: \\ Though his Barke cannot be lost, \\ Yet it shall be Tempest-tost. \\ Looke what I haue.
+            
+            \dia{2.} Shew me, shew me.
+
+            \dia{1.} Here I have a Pilots Thumbe, \\ Wrackt, as homeword he did come. \hfill\textit{Drum within.}
+            
+            \dia{3.} A Drumme, a Drumme: \\ \textit{Macbeth} doth come.
+
+            \dia{All.} The weyward Sisters, hand in hand, \\ Posters of the Sea and Land, \\ Thus doe goe, about, about, \\ Thrice to thine, and thrice to mine, \\ And thrice againe, to make vp nine. \\ Peace, the Charme's wound vp.
+
+            \stagedir{Enter Macbeth and Banquo.}
+
+            \dia{Macb.} So foule and faire a day I haue not seene.
+            
+            \dia{Banquo.} How farre is't call'd to Soris? What are these, \\ So wither'd, and so wilde in their attyre, \\ That looke not like th' Inhabitants o'th' Earth, \\ And yet are on't? Liue you, or are you aught \\ That man may question? you seeme to vnderstand me, \\ By each at once her choppie finger laying \\ Vpon her skinnie Lips: you should be Women, \\ And yet your Beards forbid me to interprete \\ That you are so.
+
+            \dia{Mac.} Speake if you can: what are you?
+            
+            \dia{1.} All haile \textit{Macbeth}, haile to thee \textit{Thane} of Glamis.
+            
+            \dia{2.} All haile \textit{Macbeth}, haile to thee \textit{Thane} of Cawdor.
+
+            \dia{3.} All haile \textit{Macbeth}, that shalt be King hereafter.
+
+            \dia{Banq.} Good Sir, why doe you start, and seeme to feare \\ Things that doe sound so faire? i'th' name of truth \\ Are ye fantasticall, or that indeed \\ Which outwardly ye shew? My Noble Partner \\ You greet with present Grace, and great prediction \\ Of Noble hauing, and of Royall hope, \\ That he seemes wrapt withall: to me you speake not. \\ If you can looke into the Seedes of Time, \\ And say, which Graine will grow, and which will not, \\ Speake then to me, who neyther begge, nor feare \\ Your fauors, nor your hate.
+
+            \dia{1.} Hayle.
+            
+            \dia{2.} Hayle.
+            
+            \dia{3.} Hayle.
+
+            \dia{1.} Lesser than \textit{Macbeth}, and greater.
+
+            \dia{2.} Not so happy, yet much happyer.
+
+            \dia{3.} Thou shalt get Kings, though thou be none: \\ So all haile \textit{Macbeth}, and \textit{Banquo}.
+
+            \dia{1.} \textit{Banquo}, and \textit{Macbeth}, all haile.
+
+            \dia{Macb.} Stay you imperfect Speakers, tell me more: \\ By Sinells death, I know I am Thane of Glamis, \\ But how, of Cawdor? the Thane of Cawdor liues \\ A prosperous Gentleman: And to be King, \\ Stands not within the prospect of beleefe, \\ No more then to be Cawdor. Say from whence \\ You owe this strange Intelligence, or why \\ Vpon this blasted Heath you stop our way \\ With such Prophetique greeting? \\ Speake, I charge you. \hfill \textit{Witches vanish.}
+
+            \dia{Banq.} The Earth hath bubbles, as the Water ha's, \\ And these are of them: whither are they vanish'd?
+            
+            \dia{Macb.} Into the Ayre: and what seem'd corporall, \\ Melted, as breath into the Winde. \\ Would they had stay'd.
+
+            \dia{Banq.} Were such things here, as we doe speake about? \\ Or haue we eaten on the insane Root, \\ That takes the Reason Prisoner?
+            
+            \dia{Macb.} Your Children shall be Kings.
+            
+            \dia{Banq.} You shall be King.
+            
+            \dia{Macb.} And \textit{Thane} of Cawdor too: went it not so?
+
+            \dia{Banq.} Toth' selfe-same tune and words: who's here?
+
+            \stagedir{Enter Rosse and Angus.}
+
+            \dia{Rosse.} The King hath happily receiu'd, \textit{Macbeth}, \\ The newes of thy successe: and when he reades \\ Thy personall Venture in the Rebels sight, \\ His Wonders and his Prayses doe contend, \\ Which should be thine, or his: silenc'd with that, \\ In viewing o're the rest o'th' selfe-same day, \\ He findes thee in the stout Norweyan Rankes, \\ Nothing afeard of what thy selfe didst make \\ Strange Images of death, as thick as Tale \\ Can post with post, and euery one did beare \\ Thy prayses in his Kingdomes great defence, \\ And powr'd them downe before him.
+
+            \dia{Ang.} Wee are sent, \\ To giue thee from our Royall Master thanks, \\ Onely to harrold thee into his sight, \\ Not pay thee.
+
+            \dia{Rosse.} And for an earnest of a greater Honor, \\ He bad me, from him, call thee \textit{Thane} of Cawdor: \\ In which addition, haile most worthy \textit{Thane}, \\ For it is thine.
+
+            \dia{Banq.} What, can the Deuill speake true?
+
+            \dia{Macb.} The \textit{Thane} of Cawdor liues: \\ Why doe you dresse me in borrowed Robes?
+
+            \dia{Ang.} Who was the \textit{Thane}, liues yet, \\ But vnder heauie Iudgement beares that Life, \\ Which he deserues to loose. \\ Whether he was combin'd with those of Norway, \\ Or did lyne the Rebell with hidden helpe, \\ And vantage; or that with both he labour'd \\ In his Countreyes wracke, I know not: \\ But Treasons Capitall, confess'd, and prou'd, \\ Haue ouerthrowne him.
+
+            \dia{Macb.} Glamys, and \textit{Thane} of Cawdor: \\ The greatest is behinde. Thankes for your paines. \\ Doe you not hope your Children shall be Kings, \\ When those that gaue the \textit{Thane} of Cawdor to me, \\ Promis'd no lesse to them.
+
+            \dia{Banq.} That trusted home, \\ Might yet enkindle you vnto the Crowne, \\ Besides the \textit{Thane} of Cawdor. But 'tis strange: \\ And oftentimes, to winne vs to our harme, \\ The Instruments of Darknesse tell vs Truths, \\ Winne vs with honest Trifles, to betray's \\ In deepest consequence. \\ Cousins, a word, I pray you.
+
+            \dia{Macb.} Two Truths are told, \\ As happy Prologues to the swelling Act \\ Of the Imperiall Theame. I thanke you Gentlemen: \\ This supernaturall solliciting \\ Cannot be ill; cannot be good. \\ If ill? why hath it giuen me earnest of successe, \\ Commencing in a Truth? I am \textit{Thane} of Cawdor. \\ If good? why doe I yeeld to that suggestion, \\ Whose horrid Image doth vnfixe my Heire, \\ And make my seated Heart knock at my Ribbes, \\ Against the vse of Nature? Present Feares \\ Are lesse then horrible Imaginings: \\ My Thought, whose Murther yet is but fantasticall, \\ Shakes so my single state of Man, \\ That Function is smother'd in surmise, \\ And nothing is, but what is not.
+
+            \dia{Banq.} Looke how our Partner's rapt.
+
+            \dia{Macb.} If Chance will haue me King, \\ Why Chance may Crowne me, \\ Without my stirre.
+
+            \dia{Banq.} New Honors come vpon him \\ Like our strange Garments, cleaue not to their mould, \\ But with the aid of vse.
+
+            \dia{Macb.} Come what come may, \\ Time, and the Houre, runs through the roughest Day
+
+            \dia{Banq.} Worthy \textit{Macbeth}, wee stay vpon your leysure
+
+            \dia{Macb.} Giue me your fauour: \\ My dull Braine was wrought with things forgotten. \\ Kinde Gentlemen, your paines are registred, \\ Where euery day I turne the Leafe, \\ To reade them. \\ Let vs toward the King: thinke vpon \\ What hath chanc'd: and at more time, \\ The \textit{Interim} hauing weigh'd it, let vs speake \\ Our free Hearts each to other.
+
+            \dia{Banq.} Very gladly.
+
+            \dia{Macb.} Till then enough: \\ Come friends. \hfill \textit{Exeunt.}
+
+        \newscenenamed{Scena Quarta.}
+            \stagedir{Flourish. Enter King, Lenox, Malcolme, Donalbaine, and Attendants.}
 	\end{multicols}
 \end{document}
